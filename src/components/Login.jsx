@@ -1,4 +1,9 @@
 export default function Login() {
+  function handleSubmit(e) {
+    e.preventDefault();
+    console.log("hello");
+  }
+
   return (
     <form>
       <h2>Login</h2>
@@ -17,7 +22,9 @@ export default function Login() {
 
       <p className="form-actions">
         <button className="button button-flat">Reset</button>
-        <button className="button">Login</button>
+        <button className="button" onClick={handleSubmit}>
+          Login
+        </button>
       </p>
     </form>
   );
