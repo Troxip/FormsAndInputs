@@ -1,13 +1,22 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 export default function Login() {
+  const [formIsInvalid, setFormIsInvalid] = useState(false);
+
   const email = useRef();
   const password = useRef();
 
   function handleSubmit(event) {
     event.preventDefault();
-    console.log(email.current.value);
-    console.log(password.current.value);
+
+    const emailIsValid = email.current.value.includes("@");
+
+    if (!emailIsValid) {
+      setFormIsInvalid(false);
+      return;
+    }
+
+    console.log("Sending HTTP request...");
   }
 
   return (
